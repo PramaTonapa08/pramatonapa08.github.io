@@ -1,69 +1,50 @@
-
 # Decker - Astro & Tailwind Portfolio Template
 
-Decker is a retro-inspired portfolio theme built with **Astro** and **Tailwind CSS**, designed for developers and engineers. It combines Astro's performance with Tailwind CSS's flexibility to create a modern, customizable, and professional online presence.
+A portfolio Astro & Tailwind theme built for developers and engineers. Decker was built with a retro tech design that combines the performance of Astro with the flexibility of Tailwind CSS to deliver a strong online presence.
 
-## Live Demo
+- [**Live Demo**](https://decker-gmc.pages.dev) 
 
-- [View Live Demo](https://decker-gmc.pages.dev)
+If you have any questions, feel free to reach out:
+- [Twitter](https://x.com/_gasparjs)
+- [Bluesky](https://bsky.app/profile/gasparjs.bsky.social)
+- [jessgaspardev@gmail.com](mailto:jessgaspardev@gmail.com)
 
-## Contact the Creator
-
-If you have any questions or feedback about this theme, feel free to reach out:
-
-- **Twitter / X:** [@_gasparjs](https://x.com/_gasparjs)
-- **Bluesky:** [gasparjs](https://bsky.app/profile/gasparjs.bsky.social)
-- **Email:** [jessgaspardev@gmail.com](mailto:jessgaspardev@gmail.com)
 
 ## Pages Included
-
-Decker comes with the following pages:
 
 - Home
 - Projects
 - About
 - Blog
-- Blog Post
+- Blog post
 - Contact
-- 404 Not Found
+- 404
 
 ## Features
 
-Decker is built with both developers and content editors in mind. It includes several useful features:
+Built with both developers and content editors in mind, Decker ships with a comprehensive set of features:
 
-- **Content Collections:** Structured content management for projects, blog posts, experience, education, and skills.
-- **Reusable Components:** Modular components that make the codebase clean, readable, and easy to customize.
-- **Custom Tailwind Theme:** A customizable design system built with Tailwind CSS.
-- **Pagination:** Makes projects and blog posts easier to navigate as your portfolio grows.
-- **Sitemap:** Automatically generates a sitemap to help search engines index your website.
-- **SEO Optimization:** Includes semantic HTML, meta tags, and structured data to improve search engine visibility.
-- **Accessibility:** Uses accessible design patterns and semantic HTML to make the website more accessible.
-- **Ongoing Updates:** Provides improvements and compatibility updates with newer Astro releases.
-- **Optional CMS:** Supports PagesCMS, allowing you to manage projects, blog posts, resumes, and other content through a visual interface without editing code directly.
+- **Content Collections:** Structured data management for projects, blog posts, experience, education and skills — making updates quick, painless, and consistent across your entire site
+- **Reusable Components:** A library of modular components that keep your codebase clean, readable, and straightforward to customize for your portfolio
+- **Custom Tailwind Theme:** A bespoke design system built on Tailwind CSS with a clean, professional aesthetic that is easy to adapt to your portfolio's identity
+- **Pagination:** Keeps your projects and blog scalable and navigable as your portfolio grows over time
+- **Sitemap:** Auto-generated and search-engine ready, ensuring all your pages are indexed from day one without any manual configuration
+- **Optimized for SEO:** Built-in best practices including semantic markup, meta tags, and structured data to help your portfolio rank higher and reach more people
+- **Optimized for Accessibility:** Designed to be usable by everyone, with accessible patterns, and semantic HTML throughout
+- **Ongoing Updates:** Regular improvements and continued compatibility with the latest Astro releases so your theme stays modern and well-maintained
+- **Optional CMS with PagesCMS:** Manage your projects, blog posts, resume, and more site content through an intuitive visual interface — no code required
 
-## Astro Commands
+## 🧞 Astro Commands
 
-All commands should be executed from the root directory of the project using a terminal.
+All commands are run from the root of the project, from a terminal:
 
-| Command | Description |
-|---|---|
-| `npm install` | Installs project dependencies. |
-| `npm run dev` | Starts the local development server at `localhost:4321`. |
-| `npm run build` | Builds the production website into the `./dist/` directory. |
-| `npm run preview` | Previews the production build locally. |
-| `npm run astro ...` | Runs Astro CLI commands, such as `astro add` and `astro check`. |
-| `npm run astro -- --help` | Displays the Astro CLI help information. |
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## Theme Attribution
 
-This portfolio website uses the **Decker – Astro & Tailwind Portfolio Template**.
-
-- **Theme Name:** Decker
-- **Creator:** Jess Gaspar
-- **Theme Demo:** https://decker-gmc.pages.dev
-- **Creator's Website:** https://jessgaspar.dev/themes
-- **Original Theme Repository:** https://github.com/jg-gaspar/decker
-
----
-
-*Original theme created by Jess Gaspar. Customized and maintained by Prama Hardi Tonapa.*

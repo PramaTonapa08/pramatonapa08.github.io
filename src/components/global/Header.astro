@@ -1,76 +1,146 @@
 ---
- // assets
+/*Assets*/
 import { Image } from "astro:assets";
 import photo from "../../assets/images/profile.jpeg";
-
-// components
+ /*Components*/
 import Text from "../elements/Text.astro";
 import NavBar from "./NavBar.astro";
 import SocialLinks from "../elements/SocialLinks.astro";
 
-// Header content
+/* =========================================
+   HEADER CONTENT
+========================================= */
 const {
     role = "Statistics Student | Cenderawasih University",
     name = "Prama Hardi Tonapa",
     status = "Available for work"
 } = Astro.props;
-
 ---
-<header class="
-    flex flex-col gap-24
-    md:pt-56 pt-16
-    bg-base-950
-    text-base-50
-    md:sticky md:top-0
-    z-50
-">
 
-    <!-- Profile Section -->
-    <div class="
-        md:px-32 px-16
-        flex md:flex-row flex-col
-        gap-16
-        items-center
-    ">
+<header
+    class="
+        relative
+        z-50
+        flex
+        w-full
+        min-w-0
+        flex-col
+        gap-8
+        bg-base-950
+        pt-8
+        text-base-50
+        md:sticky
+        md:top-0
+        md:gap-12
+        md:pt-14
+    "
+>
 
-        <!-- Profile Image -->
-        <Image
-            src={photo}
-            alt="Prama Hardi Tonapa"
-            width={200}
-            height={200}
-            densities={[1, 1.5, 2]}
-            loading="lazy"
-            class="
-                object-cover object-center
-                w-25 h-25
-                rounded-full
-                drop-shadow-md
-            "
-        />
+    <!-- =====================================
+         PROFILE SECTION
+    ====================================== -->
 
-        <!-- Profile Information -->
-        <div class="
-            flex md:flex-row flex-col
-            gap-24
-            justify-between
-            items-center
+    <div
+        class="
+            flex
             w-full
-        ">
+            min-w-0
+            flex-col
+            items-center
+            gap-5
+            px-4
+            sm:px-6
+            md:flex-row
+            md:items-center
+            md:gap-8
+            md:px-12
+            lg:px-32
+        "
+    >
 
-            <!-- Name and Social Links -->
-            <div class="
-                flex flex-col gap-24
-                md:items-start
-                justify-center items-center
-            ">
+        <!-- PROFILE IMAGE -->
 
-                <div class="
-                    flex flex-col
-                    md:text-left text-center
-                ">
+        <div
+            class="
+                flex
+                shrink-0
+                items-center
+                justify-center
+            "
+        >
+            <Image
+                src={photo}
+                alt="Foto profil Prama Hardi Tonapa"
+                width={200}
+                height={200}
+                densities={[1, 1.5, 2]}
+                loading="eager"
+                class="
+                    h-28
+                    w-28
+                    shrink-0
+                    rounded-full
+                    object-cover
+                    object-center
+                    drop-shadow-md
+                    ring-2
+                    ring-base-800
+                    md:h-32
+                    md:w-32
+                    lg:h-36
+                    lg:w-36
+                "
+            />
+        </div>
 
-                    <!-- Role -->
+
+        <!-- PROFILE INFORMATION -->
+
+        <div
+            class="
+                flex
+                w-full
+                min-w-0
+                flex-col
+                items-center
+                gap-5
+                md:flex-row
+                md:items-center
+                md:justify-between
+                md:gap-6
+            "
+        >
+
+            <!-- NAME, ROLE AND SOCIAL LINKS -->
+
+            <div
+                class="
+                    flex
+                    min-w-0
+                    flex-col
+                    items-center
+                    justify-center
+                    gap-4
+                    md:items-start
+                "
+            >
+
+                <!-- ROLE AND NAME -->
+
+                <div
+                    class="
+                        flex
+                        min-w-0
+                        flex-col
+                        items-center
+                        text-center
+                        md:items-start
+                        md:text-left
+                    "
+                >
+
+                    <!-- ROLE -->
+
                     <Text
                         variant="normal"
                         class="text-base-700"
@@ -78,7 +148,9 @@ const {
                         {role}
                     </Text>
 
-                    <!-- Name -->
+
+                    <!-- NAME -->
+
                     <Text
                         variant="xl"
                         class="text-base-50"
@@ -88,26 +160,46 @@ const {
 
                 </div>
 
-                <!-- Social Links -->
+
+                <!-- SOCIAL LINKS -->
+
                 <SocialLinks />
 
             </div>
 
-            <!-- Availability Status -->
-            <div class="
-                availability-status
-                px-16 py-8
-                rounded-md
-                border
-                shadow-sm
-            ">
+
+            <!-- AVAILABILITY STATUS -->
+
+            <div
+                class="
+                    availability-status
+                    flex
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-md
+                    border
+                    px-4
+                    py-2
+                    shadow-sm
+                "
+            >
                 <Text variant="sm">
                     {status}
                 </Text>
             </div>
+
         </div>
+
     </div>
 
-    <!-- Navigation Bar -->
-    <NavBar />
+
+    <!-- =====================================
+         NAVIGATION BAR
+    ====================================== -->
+
+    <div class="w-full min-w-0">
+        <NavBar />
+    </div>
+
 </header>

@@ -9,17 +9,18 @@ import { getReadingTime } from "../../utils/readingTime";
 import Section from "../../components/elements/Section.astro";
 import ArticleCard from "../../components/elements/ArticleCard.astro";
 import Pagination from "../../components/elements/Pagination.astro";
+import SearchBar from "../../components/elements/SearchBar.astro";
 
 // routing
 import { type GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
-export const getStaticPaths = (async ({paginate}) => {
+export const getStaticPaths = (async ({ paginate }) => {
     const blog = await getCollection("blog");
     const blogWithReadingTime = blog.map((article) => ({
         ...article,
-        readingTime: getReadingTime(article.body ?? "")
+        readingTime: getReadingTime(article.body ?? ""),
     }));
-    return paginate(blogWithReadingTime, {pageSize: 12})
+    return paginate(blogWithReadingTime, { pageSize: 12 });
 }) satisfies GetStaticPaths;
 
 // props
@@ -36,17 +37,27 @@ const { page } = Astro.props;
         title="My Blogs"
         titleHeading="The freshman random sides"
     >
+        <!-- Kolom Pencarian Blog -->
+        <SearchBar placeholder="Cari judul blog, kategori (#hobbies), atau kata kunci..." />
+
+        <!-- Daftar Artikel -->
         {
             page.data.map((article) => (
-                <ArticleCard
-                    title={article.data.title}
-                    publishedDate={article.data.publishedDate}
-                    slug={article.data.slug}
-                    category={article.data.category}
-                    readingTime={article.readingTime}
-                />
+                <div
+                    data-search-item
+                    data-search-text={`${article.data.title} ${article.data.category ?? ""} ${article.body ?? ""}`}
+                >
+                    <ArticleCard
+                        title={article.data.title}
+                        publishedDate={article.data.publishedDate}
+                        slug={article.data.slug}
+                        category={article.data.category}
+                        readingTime={article.readingTime}
+                    />
+                </div>
             ))
         }
+
         <Pagination prev={page.url.prev} next={page.url.next} />
     </Section>
 </Layout>

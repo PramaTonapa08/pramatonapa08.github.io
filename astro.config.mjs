@@ -6,14 +6,14 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   fonts: [
-    { 
+    {
       provider: fontProviders.fontsource(),
       name: "VT323",
       cssVariable: "--font-pixels",
       fallbacks: ["monospace"],
       styles: ["normal", "italic"],
     },
-    { 
+    {
       provider: fontProviders.fontsource(),
       name: "JetBrains Mono",
       cssVariable: "--font-mono",
@@ -26,6 +26,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: "https://pramatonapa08.github.io", // change to your domain
+  site: "https://pramatonapa08.github.io",
   integrations: [sitemap()]
 });

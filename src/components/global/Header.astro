@@ -54,32 +54,31 @@ const {
             lg:px-32
         "
     >
-        <!-- PROFILE IMAGE: Ukuran dikunci agar bulat besar & jelas di HP maupun Laptop -->
-        <div class="flex shrink-0 items-center justify-center">
+        <!-- PROFILE IMAGE: Pembungkus dikunci agar lingkaran tidak melebar saat loading -->
+        <div
+            class="
+                flex
+                h-32
+                w-32
+                shrink-0
+                items-center
+                justify-center
+                overflow-hidden
+                rounded-full
+                drop-shadow-md
+                ring-2
+                ring-base-800
+                lg:h-36
+                lg:w-36
+            "
+        >
             <Image
                 src={photo}
                 alt="Foto profil Prama Hardi Tonapa"
                 width={200}
                 height={200}
                 loading="eager"
-                class="
-                    aspect-square
-                    h-32
-                    w-32
-                    min-h-32
-                    min-w-32
-                    shrink-0
-                    rounded-full
-                    object-cover
-                    object-center
-                    drop-shadow-md
-                    ring-2
-                    ring-base-800
-                    lg:h-36
-                    lg:w-36
-                    lg:min-h-36
-                    lg:min-w-36
-                "
+                class="h-full w-full object-cover object-center"
             />
         </div>
 
@@ -98,7 +97,7 @@ const {
                 md:gap-6
             "
         >
-<!-- NAME, ROLE AND SOCIAL LINKS -->
+            <!-- NAME, ROLE AND SOCIAL LINKS -->
             <div
                 class="
                     flex
@@ -138,7 +137,7 @@ const {
                     <SocialLinks />
                 </div>
             </div>
-        
+
             <!-- AVAILABILITY STATUS BADGE -->
             <div
                 class="

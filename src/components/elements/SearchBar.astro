@@ -1,0 +1,116 @@
+---
+interface Props {
+    placeholder?: string;
+    targetSelector?: string;
+}
+
+const {
+    placeholder = "Cari judul, topik, atau tag...",
+    targetSelector = "[data-search-item]",
+} = Astro.props;
+---
+
+<div class="mb-6 w-full" data-search-wrapper data-target={targetSelector}>
+    <div class="relative flex w-full items-center">
+        <!-- Ikon Kaca Pembesar -->
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            class="pointer-events-none absolute left-3.5 h-4 w-4 text-base-400"
+        >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+        </svg>
+
+        <!-- Input Pencarian -->
+        <input
+            type="search"
+            data-search-input
+            placeholder={placeholder}
+            aria-label={placeholder}
+            class="w-full rounded-md border border-base-800 bg-base-900 py-2.5 pr-10 pl-10 font-mono text-sm text-base-50 placeholder-base-500 transition-colors focus:border-base-500 focus:outline-none"
+        />
+
+        <!-- Tombol Hapus Teks (Muncul saat ada ketikan) -->
+        <button
+            type="button"
+            data-search-clear
+            aria-label="Hapus pencarian"
+            class="hidden cursor-pointer absolute right-3 rounded p-1 text-xs text-base-400 hover:text-base-50"
+        >
+            ✕
+        </button>
+    </div>
+
+    <!-- Pesan Jika Tidak Ditemukan -->
+    <p
+        data-search-empty
+        class="mt-6 hidden rounded-md border border-base-800 bg-base-900/50 p-6 text-center font-mono text-sm text-base-400"
+    >
+        Tidak ada hasil yang cocok dengan kata kunci "<span data-search-query class="text-base-50"></span>".
+    </p>
+</div>
+
+<script>
+    function initSearch() {
+        const wrappers = document.querySelectorAll<HTMLElement>("[data-search-wrapper]");
+
+        wrappers.forEach((wrapper) => {
+            const input = wrapper.querySelector<HTMLInputElement>("[data-search-input]");
+            const clearBtn = wrapper.querySelector<HTMLButtonElement>("[data-search-clear]");
+            const emptyMsg = wrapper.querySelector<HTMLElement>("[data-search-empty]");
+            const queryText = wrapper.querySelector<HTMLElement>("[data-search-query]");
+            const targetSelector = wrapper.dataset.target || "[data-search-item]";
+
+            if (!input || input.dataset.initialized === "true") return;
+            input.dataset.initialized = "true";
+
+            const filterItems = () => {
+                const keyword = input.value.trim().toLowerCase();
+                const items = document.querySelectorAll<HTMLElement>(targetSelector);
+                let visibleCount = 0;
+
+                if (clearBtn) {
+                    clearBtn.classList.toggle("hidden", keyword.length === 0);
+                }
+
+                items.forEach((item) => {
+                    const searchData = (
+                        item.dataset.searchText ||
+                        item.textContent ||
+                        ""
+                    ).toLowerCase();
+
+                    const isMatch = keyword === "" || searchData.includes(keyword);
+                    item.classList.toggle("hidden", !isMatch);
+                    if (isMatch) visibleCount++;
+                });
+
+                if (emptyMsg && queryText) {
+                    const showEmpty = keyword.length > 0 && visibleCount === 0;
+                    emptyMsg.classList.toggle("hidden", !showEmpty);
+                    queryText.textContent = input.value.trim();
+                }
+            };
+
+            input.addEventListener("input", filterItems);
+
+            if (clearBtn) {
+                clearBtn.addEventListener("click", () => {
+                    input.value = "";
+                    filterItems();
+                    input.focus();
+                });
+            }
+        });
+    }
+
+    initSearch();
+    document.addEventListener("astro:page-load", initSearch);
+</script>

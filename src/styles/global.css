@@ -71,20 +71,14 @@
     --breakpoint-xl: 1440px;
 
 }
-/* =========================================
-   DARK MODE
-   Default Theme
-========================================= */
+
+/* DARK MODE (Default Theme) */
 
 :root {
     color-scheme: dark;
 }
 
-
-/* =========================================
-   LIGHT MODE
-   Soft Warm Neutral - Eye Comfort
-========================================= */
+/* LIGHT MODE (Soft Warm Neutral - Eye Comfort) */
 
 html[data-theme="light"] {
 

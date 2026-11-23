@@ -1,10 +1,8 @@
 ---
 const pathname = Astro.url.pathname;
 
-// Components
 import Link from "../elements/Link.astro";
 
-// Navigation menu
 const nav = [
     { title: "HOME", href: "/" },
     { title: "PROJECTS", href: "/projects" },
@@ -14,15 +12,19 @@ const nav = [
 ];
 ---
 
-<nav class="bg-base-900 flex flex-row flex-wrap sticky top-0 items-center justify-between">
-
+<nav
+    class="sticky top-0 z-50 flex w-full min-w-0 flex-col items-center justify-between gap-2 bg-base-900 px-2 py-2 transition-none sm:flex-row sm:gap-0 sm:px-4"
+    aria-label="Main navigation"
+>
     <!-- Navigation Links -->
-    <div class="flex flex-row flex-wrap">
+    <div class="flex w-full min-w-0 flex-wrap items-center justify-center sm:w-auto sm:justify-start">
         {
             nav.map((navLink) => {
-                const isActive = navLink.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(navLink.href);
+                const isActive =
+                    navLink.href === "/"
+                        ? pathname === "/"
+                        : pathname === navLink.href ||
+                          pathname.startsWith(`${navLink.href}/`);
 
                 return (
                     <Link
@@ -30,53 +32,50 @@ const nav = [
                         href={navLink.href}
                         text={navLink.title}
                         aria-current={isActive ? "page" : undefined}
-                        class={isActive ? "bg-base-950 border-t-2 border-base-900" : ""}
+                        class:list={[
+                            "shrink-0 transition-none",
+                            isActive
+                                ? "bg-base-950 border-t-2 border-base-900"
+                                : "hover:bg-base-800",
+                        ]}
                     />
                 );
             })
         }
     </div>
-
+    
     <!-- Theme Toggle -->
     <button
         id="theme-toggle"
         type="button"
         aria-label="Switch to light mode"
         title="Toggle theme"
-        class="px-16 py-8 text-xl hover:opacity-70 transition-opacity"
+        class="flex min-h-10 min-w-10 shrink-0 cursor-pointer items-center justify-center rounded-md px-3 py-2 text-lg transition-transform duration-300 hover:scale-110 hover:opacity-80 focus-visible:outline focus-visible:outline-2"
     >
-        <span id="theme-icon">☀️</span>
+        <span id="theme-icon" aria-hidden="true" class="inline-block transition-transform duration-300">☀️</span>
     </button>
-
 </nav>
 
-
 <script>
-    // Get saved theme
-    function getSavedTheme() {
+    function getSavedTheme(): string {
         return localStorage.getItem("theme") || "dark";
     }
 
-    // Update theme
-    function updateTheme(theme: any) {
+    function applyTheme(theme: string) {
         document.documentElement.setAttribute("data-theme", theme);
-
         localStorage.setItem("theme", theme);
 
-        updateThemeIcon(theme);
-    }
-
-    // Update theme icon and accessibility label
-    function updateThemeIcon(theme: any) {
         const icon = document.getElementById("theme-icon");
-        const toggle = document.getElementById("theme-toggle");
+        const button = document.getElementById("theme-toggle");
 
         if (icon) {
             icon.textContent = theme === "dark" ? "☀️" : "🌙";
+            // Efek putar ringan saat ikon berganti
+            icon.style.transform = theme === "dark" ? "rotate(0deg)" : "rotate(360deg)";
         }
 
-        if (toggle) {
-            toggle.setAttribute(
+        if (button) {
+            button.setAttribute(
                 "aria-label",
                 theme === "dark"
                     ? "Switch to light mode"
@@ -85,57 +84,30 @@ const nav = [
         }
     }
 
-    // Initialize theme
-    updateTheme(getSavedTheme());
+    // Terapkan tema saat halaman dimuat
+    applyTheme(getSavedTheme());
 
-    // Event delegation for theme toggle
+    // Ubah tema dengan animasi saat tombol diklik
     document.addEventListener("click", (event) => {
         const target = event.target;
-
         if (!(target instanceof Element)) return;
 
-        const toggle = target.closest("#theme-toggle");
-
-        if (!toggle) return;
+        const button = target.closest("#theme-toggle");
+        if (!button) return;
 
         const currentTheme =
             document.documentElement.getAttribute("data-theme") || "dark";
 
-        const newTheme =
-            currentTheme === "dark" ? "light" : "dark";
-
-        updateTheme(newTheme);
+        applyTheme(currentTheme === "dark" ? "light" : "dark");
     });
 
-    // Apply theme before Astro displays the next page
+    // Pertahankan tema saat navigasi halaman (Astro View Transitions)
     document.addEventListener("astro:before-swap", (event) => {
         const theme = getSavedTheme();
-        const newDocument = event.newDocument;
-
-        newDocument.documentElement.setAttribute("data-theme", theme);
-
-        const icon = newDocument.getElementById("theme-icon");
-        const toggle = newDocument.getElementById("theme-toggle");
-
-        if (icon) {
-            icon.textContent = theme === "dark" ? "☀️" : "🌙";
-        }
-
-        if (toggle) {
-            toggle.setAttribute(
-                "aria-label",
-                theme === "dark"
-                    ? "Switch to light mode"
-                    : "Switch to dark mode"
-            );
-        }
+        event.newDocument.documentElement.setAttribute("data-theme", theme);
     });
 
-    // Synchronize theme after navigation
     document.addEventListener("astro:page-load", () => {
-        const theme =
-            document.documentElement.getAttribute("data-theme") || "dark";
-
-        updateThemeIcon(theme);
+        applyTheme(getSavedTheme());
     });
 </script>

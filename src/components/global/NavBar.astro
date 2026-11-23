@@ -13,47 +13,49 @@ const nav = [
 ---
 
 <nav
-    class="sticky top-0 z-50 flex w-full min-w-0 flex-row items-center justify-between gap-2 bg-base-900 px-2 py-2 transition-none sm:px-4 lg:px-32"
+    class="sticky top-0 z-50 w-full bg-base-900 transition-none"
     aria-label="Main navigation"
 >
-    <!-- Navigation Links -->
-    <div class="no-scrollbar flex min-w-0 flex-1 items-center overflow-x-auto">
-        {
-            nav.map((navLink) => {
-                const isActive =
-                    navLink.href === "/"
-                        ? pathname === "/"
-                        : pathname === navLink.href ||
-                          pathname.startsWith(`${navLink.href}/`);
+    <div class="mx-auto flex w-full max-w-5xl min-w-0 items-center justify-between gap-1 px-2 py-2 sm:px-6">
+        <!-- Navigation Links -->
+        <div class="no-scrollbar flex min-w-0 flex-1 items-center justify-between overflow-x-auto sm:justify-start">
+            {
+                nav.map((navLink) => {
+                    const isActive =
+                        navLink.href === "/"
+                            ? pathname === "/"
+                            : pathname === navLink.href ||
+                              pathname.startsWith(`${navLink.href}/`);
 
-                return (
-                    <Link
-                        variant="nav"
-                        href={navLink.href}
-                        text={navLink.title}
-                        aria-current={isActive ? "page" : undefined}
-                        class:list={[
-                            "shrink-0 transition-none",
-                            isActive
-                                ? "bg-base-950 border-t-2 border-base-900"
-                                : "hover:bg-base-800",
-                        ]}
-                    />
-                );
-            })
-        }
+                    return (
+                        <Link
+                            variant="nav"
+                            href={navLink.href}
+                            text={navLink.title}
+                            aria-current={isActive ? "page" : undefined}
+                            class:list={[
+                                "shrink-0 transition-none !px-2 !py-1.5 !text-xs sm:!px-4 sm:!py-2 sm:!text-base",
+                                isActive
+                                    ? "bg-base-950 border-t-2 border-base-900"
+                                    : "hover:bg-base-800",
+                            ]}
+                        />
+                    );
+                })
+            }
+        </div>
+
+        <!-- Theme Toggle -->
+        <button
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch to light mode"
+            title="Toggle theme"
+            class="ml-1 flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-md text-base transition-transform duration-300 hover:scale-110 hover:opacity-80 focus-visible:outline focus-visible:outline-2 sm:h-10 sm:w-10 sm:text-lg"
+        >
+            <span id="theme-icon" aria-hidden="true" class="inline-block transition-transform duration-300">☀️</span>
+        </button>
     </div>
-
-    <!-- Theme Toggle -->
-    <button
-        id="theme-toggle"
-        type="button"
-        aria-label="Switch to light mode"
-        title="Toggle theme"
-        class="flex min-h-10 min-w-10 shrink-0 cursor-pointer items-center justify-center rounded-md px-3 py-2 text-lg transition-transform duration-300 hover:scale-110 hover:opacity-70 focus-visible:outline focus-visible:outline-2"
-    >
-        <span id="theme-icon" aria-hidden="true" class="inline-block transition-transform duration-300">☀️</span>
-    </button>
 </nav>
 
 <script>

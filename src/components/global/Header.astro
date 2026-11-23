@@ -1,8 +1,9 @@
 ---
-/*Assets*/
+/* Assets */
 import { Image } from "astro:assets";
 import photo from "../../assets/images/profile.jpeg";
- /*Components*/
+
+/* Components */
 import Text from "../elements/Text.astro";
 import NavBar from "./NavBar.astro";
 import SocialLinks from "../elements/SocialLinks.astro";
@@ -13,7 +14,7 @@ import SocialLinks from "../elements/SocialLinks.astro";
 const {
     role = "Statistics Student | Cenderawasih University",
     name = "Prama Hardi Tonapa",
-    status = "Available for work"
+    status = "Available for work",
 } = Astro.props;
 ---
 
@@ -33,37 +34,28 @@ const {
         md:pt-14
     "
 >
-
     <!-- =====================================
          PROFILE SECTION
     ====================================== -->
-
     <div
         class="
+            mx-auto
             flex
             w-full
+            max-w-5xl
             min-w-0
             flex-col
             items-center
             gap-5
             px-4
-            sm:px-8
-            lg:flex-row
-            lg:items-center
-            lg:gap-8
-            lg:px-32
+            sm:px-6
+            md:flex-row
+            md:items-center
+            md:gap-8
         "
     >
-
-<!-- PROFILE IMAGE -->
-        <div
-            class="
-                flex
-                shrink-0
-                items-center
-                justify-center
-            "
-        >
+        <!-- PROFILE IMAGE -->
+        <div class="flex shrink-0 items-center justify-center">
             <Image
                 src={photo}
                 alt="Foto profil Prama Hardi Tonapa"
@@ -90,7 +82,6 @@ const {
         </div>
 
         <!-- PROFILE INFORMATION -->
-
         <div
             class="
                 flex
@@ -98,73 +89,38 @@ const {
                 min-w-0
                 flex-col
                 items-center
-                gap-5
-                lg:flex-row
-                lg:items-center
-                lg:justify-between
-                lg:gap-6
+                gap-4
+                md:flex-row
+                md:items-center
+                md:justify-between
             "
         >
-
             <!-- NAME, ROLE AND SOCIAL LINKS -->
-
             <div
                 class="
                     flex
                     min-w-0
                     flex-col
                     items-center
-                    justify-center
-                    gap-4
-                    lg:items-start
+                    text-center
+                    md:items-start
+                    md:text-left
                 "
             >
+                <Text variant="normal" class="text-base-700">
+                    {role}
+                </Text>
 
-                <!-- ROLE AND NAME -->
+                <Text variant="xl" class="text-base-50">
+                    {name}
+                </Text>
 
-                <div
-                    class="
-                        flex
-                        min-w-0
-                        flex-col
-                        items-center
-                        text-center
-                        lg:items-start
-                        lg:text-left
-                    "
-                >
-
-                    <!-- ROLE -->
-
-                    <Text
-                        variant="normal"
-                        class="text-base-700"
-                    >
-                        {role}
-                    </Text>
-
-
-                    <!-- NAME -->
-
-                    <Text
-                        variant="xl"
-                        class="text-base-50"
-                    >
-                        {name}
-                    </Text>
-
+                <div class="mt-3">
+                    <SocialLinks />
                 </div>
-
-
-                <!-- SOCIAL LINKS -->
-
-                <SocialLinks />
-
             </div>
 
-
             <!-- AVAILABILITY STATUS -->
-
             <div
                 class="
                     availability-status
@@ -183,18 +139,13 @@ const {
                     {status}
                 </Text>
             </div>
-
         </div>
-
     </div>
-
 
     <!-- =====================================
          NAVIGATION BAR
     ====================================== -->
-
     <div class="w-full min-w-0">
         <NavBar />
     </div>
-
 </header>

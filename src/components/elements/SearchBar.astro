@@ -28,13 +28,13 @@ const {
             <path d="m21 21-4.3-4.3"></path>
         </svg>
 
-        <!-- Input Pencarian -->
+        <!-- Input Pencarian (transition-none agar berubah serentak saat ganti tema) -->
         <input
             type="search"
             data-search-input
             placeholder={placeholder}
             aria-label={placeholder}
-            class="w-full rounded-md border border-base-800 bg-base-900 py-2.5 pr-10 pl-10 font-mono text-sm text-base-50 placeholder-base-500 transition-colors focus:border-base-500 focus:outline-none"
+            class="w-full rounded-md border border-base-800 bg-base-900 py-2.5 pr-10 pl-10 font-mono text-sm text-base-50 placeholder-base-500 transition-none focus:border-base-500 focus:outline-none"
         />
 
         <!-- Tombol Hapus Teks (Muncul saat ada ketikan) -->
@@ -42,7 +42,7 @@ const {
             type="button"
             data-search-clear
             aria-label="Hapus pencarian"
-            class="hidden cursor-pointer absolute right-3 rounded p-1 text-xs text-base-400 hover:text-base-50"
+            class="hidden cursor-pointer absolute right-3 rounded p-1 text-xs text-base-400 transition-none hover:text-base-50"
         >
             ✕
         </button>
@@ -51,7 +51,7 @@ const {
     <!-- Pesan Jika Tidak Ditemukan -->
     <p
         data-search-empty
-        class="mt-6 hidden rounded-md border border-base-800 bg-base-900/50 p-6 text-center font-mono text-sm text-base-400"
+        class="mt-6 hidden rounded-md border border-base-800 bg-base-900/50 p-6 text-center font-mono text-sm text-base-400 transition-none"
     >
         Tidak ada hasil yang cocok dengan kata kunci "<span data-search-query class="text-base-50"></span>".
     </p>

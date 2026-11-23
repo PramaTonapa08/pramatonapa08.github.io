@@ -26,9 +26,9 @@ const {
         w-full
         min-w-0
         flex-col
-        gap-8
+        gap-5
         bg-base-950
-        pt-8
+        pt-6
         text-base-50
         md:gap-12
         md:pt-14
@@ -39,19 +39,19 @@ const {
     ====================================== -->
     <div
         class="
-            mx-auto
             flex
             w-full
-            max-w-5xl
             min-w-0
             flex-col
             items-center
-            gap-5
+            gap-4
             px-4
             sm:px-6
             md:flex-row
             md:items-center
             md:gap-8
+            md:px-12
+            lg:px-32
         "
     >
         <!-- PROFILE IMAGE -->
@@ -64,8 +64,8 @@ const {
                 loading="eager"
                 class="
                     aspect-square
-                    h-28
-                    w-28
+                    h-24
+                    w-24
                     shrink-0
                     rounded-full
                     object-cover
@@ -73,6 +73,8 @@ const {
                     drop-shadow-md
                     ring-2
                     ring-base-800
+                    sm:h-28
+                    sm:w-28
                     md:h-32
                     md:w-32
                     lg:h-36
@@ -93,6 +95,7 @@ const {
                 md:flex-row
                 md:items-center
                 md:justify-between
+                md:gap-6
             "
         >
             <!-- NAME, ROLE AND SOCIAL LINKS -->
@@ -102,40 +105,65 @@ const {
                     min-w-0
                     flex-col
                     items-center
-                    text-center
+                    justify-center
+                    gap-3
                     md:items-start
-                    md:text-left
+                    md:gap-4
                 "
             >
-                <Text variant="normal" class="text-base-700">
-                    {role}
-                </Text>
+                <!-- ROLE AND NAME -->
+                <div
+                    class="
+                        flex
+                        min-w-0
+                        flex-col
+                        items-center
+                        text-center
+                        md:items-start
+                        md:text-left
+                    "
+                >
+                    <Text variant="normal" class="text-base-700">
+                        {role}
+                    </Text>
 
-                <Text variant="xl" class="text-base-50">
-                    {name}
-                </Text>
-
-                <div class="mt-3">
-                    <SocialLinks />
+                    <Text variant="xl" class="text-base-50">
+                        {name}
+                    </Text>
                 </div>
+
+                <!-- SOCIAL LINKS -->
+                <SocialLinks />
             </div>
 
-            <!-- AVAILABILITY STATUS -->
+            <!-- AVAILABILITY STATUS BADGE -->
             <div
                 class="
                     availability-status
-                    flex
+                    inline-flex
                     shrink-0
                     items-center
-                    justify-center
-                    rounded-md
+                    gap-2
+                    rounded-full
                     border
-                    px-4
-                    py-2
+                    border-base-700/80
+                    bg-base-900/60
+                    px-3.5
+                    py-1.5
                     shadow-sm
+                    backdrop-blur-xs
+                    md:self-center
+                    md:px-4
+                    md:py-2
                 "
             >
-                <Text variant="sm">
+                <!-- Titik indikator hijau berkedip halus -->
+                <span class="relative flex h-2.5 w-2.5 shrink-0">
+                    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+                </span>
+
+                <Text variant="sm" class="leading-none tracking-wide">
                     {status}
                 </Text>
             </div>

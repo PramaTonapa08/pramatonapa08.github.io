@@ -17,6 +17,7 @@ content:
         options:
           multiple: true
           values:
+            - Microsoft Excel
             - HTML
             - JavaScript
             - TypeScript
@@ -25,7 +26,6 @@ content:
             - React Native
             - Backend API
             - Node.js
-            - Tailwind
       - { name: year, label: Year, type: string}
       - { name: github, label: GitHub URL, type: string }
       - { name: liveSite, label: Live Site URL, type: string }

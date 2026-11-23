@@ -1,30 +1,141 @@
 ---
 const pathname = Astro.url.pathname;
-// components
-import Link from "../elements/Link.astro"
 
-// content
+// Components
+import Link from "../elements/Link.astro";
+
+// Navigation menu
 const nav = [
-    { title: "/home", href: "/" },
-    { title: "/projects", href: "/projects" },
-    { title: "/about", href: "/about" },
-    { title: "/writing", href: "/blog" },
-    { title: "/contact", href: "/contact" },
-]
+    { title: "HOME", href: "/" },
+    { title: "PROJECTS", href: "/projects" },
+    { title: "ABOUT", href: "/about" },
+    { title: "BLOGS", href: "/blog" },
+    { title: "CONTACT", href: "/contact" },
+];
 ---
 
-<nav class="bg-base-900 flex flex-row flex-wrap sticky top-0">
-    {
-        nav.map((navLink) => {
-            const isActive = navLink.href === "/" ? pathname === "/" : pathname.startsWith(navLink.href);
-        return (
-            <Link
-                variant={'nav'} 
-                href={navLink.href}
-                text={navLink.title}
-                aria-current={isActive ? "page" : undefined}
-                class={isActive ? "bg-base-950 border-t-2 border-base-900" : "" }
-            />
-        )})
-    }
+<nav class="bg-base-900 flex flex-row flex-wrap sticky top-0 items-center justify-between">
+
+    <!-- Navigation Links -->
+    <div class="flex flex-row flex-wrap">
+        {
+            nav.map((navLink) => {
+                const isActive = navLink.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(navLink.href);
+
+                return (
+                    <Link
+                        variant="nav"
+                        href={navLink.href}
+                        text={navLink.title}
+                        aria-current={isActive ? "page" : undefined}
+                        class={isActive ? "bg-base-950 border-t-2 border-base-900" : ""}
+                    />
+                );
+            })
+        }
+    </div>
+
+    <!-- Theme Toggle -->
+    <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+        title="Toggle theme"
+        class="px-16 py-8 text-xl hover:opacity-70 transition-opacity"
+    >
+        <span id="theme-icon">☀️</span>
+    </button>
+
 </nav>
+
+
+<script>
+    // Get saved theme
+    function getSavedTheme() {
+        return localStorage.getItem("theme") || "dark";
+    }
+
+    // Update theme
+    function updateTheme(theme: any) {
+        document.documentElement.setAttribute("data-theme", theme);
+
+        localStorage.setItem("theme", theme);
+
+        updateThemeIcon(theme);
+    }
+
+    // Update theme icon and accessibility label
+    function updateThemeIcon(theme: any) {
+        const icon = document.getElementById("theme-icon");
+        const toggle = document.getElementById("theme-toggle");
+
+        if (icon) {
+            icon.textContent = theme === "dark" ? "☀️" : "🌙";
+        }
+
+        if (toggle) {
+            toggle.setAttribute(
+                "aria-label",
+                theme === "dark"
+                    ? "Switch to light mode"
+                    : "Switch to dark mode"
+            );
+        }
+    }
+
+    // Initialize theme
+    updateTheme(getSavedTheme());
+
+    // Event delegation for theme toggle
+    document.addEventListener("click", (event) => {
+        const target = event.target;
+
+        if (!(target instanceof Element)) return;
+
+        const toggle = target.closest("#theme-toggle");
+
+        if (!toggle) return;
+
+        const currentTheme =
+            document.documentElement.getAttribute("data-theme") || "dark";
+
+        const newTheme =
+            currentTheme === "dark" ? "light" : "dark";
+
+        updateTheme(newTheme);
+    });
+
+    // Apply theme before Astro displays the next page
+    document.addEventListener("astro:before-swap", (event) => {
+        const theme = getSavedTheme();
+        const newDocument = event.newDocument;
+
+        newDocument.documentElement.setAttribute("data-theme", theme);
+
+        const icon = newDocument.getElementById("theme-icon");
+        const toggle = newDocument.getElementById("theme-toggle");
+
+        if (icon) {
+            icon.textContent = theme === "dark" ? "☀️" : "🌙";
+        }
+
+        if (toggle) {
+            toggle.setAttribute(
+                "aria-label",
+                theme === "dark"
+                    ? "Switch to light mode"
+                    : "Switch to dark mode"
+            );
+        }
+    });
+
+    // Synchronize theme after navigation
+    document.addEventListener("astro:page-load", () => {
+        const theme =
+            document.documentElement.getAttribute("data-theme") || "dark";
+
+        updateThemeIcon(theme);
+    });
+</script>

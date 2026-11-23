@@ -1,19 +1,22 @@
 - id: 1
-  title: Tools
+  title: Tools & Technologies
   items:
-    - Go
     - Python
-    - TypeScript
-    - SQL
-    - AWS
-    - Docker
-    - PostgreSQL
+    - Jupyter Notebook
+    - Visual Studio Code
+    - Microsoft Excel
+    - IBM SPSS Statistics
+    - HTML & CSS
+    - GitHub
+    - JavaScript
 - id: 2
-  title: Skills
+  title: Knowledge & Skills
   items:
-    - Distributed Systems
-    - REST/gRPC APIs
-    - Scalability
-    - Unit/integration/E2E testing
-    - Ethereum, EVM, smart contracts
-    - Code reviews, documentation
+    - Mathematical Reasoning
+    - Basic Statistics
+    - Data Analysis (Begineer)
+    - Data Visualization (Begineer)
+    - Basic Programming
+    - Problem Solving
+    - Logical Thinking
+    - Critical Thinking

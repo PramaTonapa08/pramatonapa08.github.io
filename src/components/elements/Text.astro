@@ -2,19 +2,21 @@
 import type { HTMLAttributes } from "astro/types";
 
 // props
-interface Props extends HTMLAttributes<"p">{
-    variant?: "sm" | "normal" | "lg" | "xl" 
+interface Props extends HTMLAttributes<"p"> {
+    variant?: "sm" | "normal" | "lg" | "xl"
 }
 
 const { variant = "normal", class: className, ...rest } = Astro.props;
 
 // styling for each variant
 const variantStyles = {
-    sm: "font-mono text-14/4",
-    normal: "font-mono text-16/8",
-    lg: "font-pixels text-24/8 text-base-300",
-    xl: "font-pixels text-32/5 text-base-300 uppercase"
+    sm: "font-mono text-14/4 transition-colors duration-300 ease-in-out",
+    normal: "font-mono text-16/8 transition-colors duration-300 ease-in-out",
+    lg: "font-pixels text-24/8 text-base-300 transition-colors duration-300 ease-in-out",
+    xl: "font-pixels text-32/5 text-base-300 uppercase transition-colors duration-300 ease-in-out"
 }
 ---
 
-<p class:list={[variantStyles[variant], className]}{...rest}><slot /></p>
+<p class:list={[variantStyles[variant], className]} {...rest}>
+    <slot />
+</p>

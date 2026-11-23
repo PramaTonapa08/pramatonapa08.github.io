@@ -1,24 +1,33 @@
 @import "tailwindcss";
 
+/* =========================================
+   GOOGLE FONTS
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Silkscreen:wght@400;700&display=swap');
+
+/* =========================================
+   TAILWIND THEME CONFIGURATION
+========================================= */
 @theme {
-    /* --property-number: - "number" represents the pixels ex. --text-128: -> 128 pixels*/
 
     /* FONTS */
-    --font-pixels: var(--font-pixels);
-    --font-mono: var(--font-mono);
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-retro: 'Silkscreen', monospace;
+    --font-pixels: var(--font-retro);
 
-    /* COLORS */
-    --color-base-50: oklch(0.979 0.044 142.4);
-    --color-base-100: oklch(0.951 0.044 142.4);
-    --color-base-200: oklch(0.870 0.294 142.4);
-    --color-base-300: oklch(0.780 0.294 142.4);
-    --color-base-400: oklch(0.660 0.294 142.4);
-    --color-base-500: oklch(0.550 0.294 142.4);
-    --color-base-600: oklch(0.470 0.294 142.4);
-    --color-base-700: oklch(0.400 0.294 142.4);
-    --color-base-800: oklch(0.330 0.294 142.4);
-    --color-base-900: oklch(0.216 0.118 142.4);
-    --color-base-950: oklch(0.100 0.118 142.4);
+    /* COLORS - DARK MODE DEFAULT */
+    --color-base-50: #f8fafc;
+    --color-base-100: #f1f5f9;
+    --color-base-200: #e2e8f0;
+    --color-base-300: #cbd5e1;
+    --color-base-400: #94a3b8;
+    --color-base-500: #64748b;
+    --color-base-600: #475569;
+    --color-base-700: #334155;
+    --color-base-800: #1e293b;
+    --color-base-900: #0f172a;
+    --color-base-950: #090d16;
 
     /* TEXT SIZES */
     --text-216: 13.5rem;
@@ -35,7 +44,7 @@
     --text-14: 0.875rem;
     --text-12: 0.75rem;
 
-     /* SPACING */
+    /* SPACING */
     --spacing-224: 14rem;
     --spacing-144: 9rem;
     --spacing-128: 8rem;
@@ -55,7 +64,7 @@
     --spacing-4: 0.25rem;
 
     /* DROP SHADOW */
-    --drop-shadow-md: 0 0px 5px oklch(0.330 0.176 132.8); 
+    --drop-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
 
     /* BREAKPOINTS */
     --breakpoint-xsm: 320px;
@@ -63,4 +72,77 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 1200px;
     --breakpoint-xl: 1440px;
+
+}
+/* =========================================
+   DARK MODE
+   Default Theme
+========================================= */
+
+:root {
+    color-scheme: dark;
+}
+
+
+/* =========================================
+   LIGHT MODE
+   Soft Warm Neutral - Eye Comfort
+========================================= */
+
+html[data-theme="light"] {
+
+    color-scheme: light;
+
+    /* COLORS - SOFT WARM NEUTRAL */
+
+    --color-base-50: #37362F;
+    --color-base-100: #45443C;
+    --color-base-200: #504F46;
+    --color-base-300: #5C5A50;
+    --color-base-400: #777469;
+    --color-base-500: #969286;
+    --color-base-600: #B1AC9E;
+    --color-base-700: #D5D0C2;
+    --color-base-800: #E2DED2;
+    --color-base-900: #EBE8DE;
+    --color-base-950: #F5F3EC;
+
+}
+
+/* =========================================
+   AVAILABILITY STATUS
+========================================= */
+
+/* DARK MODE */
+.availability-status {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-color: #475569;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* LIGHT MODE */
+html[data-theme="light"] .availability-status {
+    background-color: #eeece5;
+    color: #37362f;
+    border-color: #c5c3b9;
+    box-shadow: 0 2px 8px rgba(80, 75, 55, 0.08);
+}
+
+/* =========================================
+   GLOBAL BACKGROUND & TEXT
+========================================= */
+
+html {
+    background-color: var(--color-base-950);
+    color-scheme: dark;
+}
+
+html[data-theme="light"] {
+    color-scheme: light;
+}
+
+body {
+    background-color: var(--color-base-950);
+    color: var(--color-base-300);
 }

@@ -1,7 +1,7 @@
 ---
-// assets
-import "../styles/global.css";
+// assets (Pastikan global.css ditaruh paling bawah agar menimpa style lain jika ada)
 import "../styles/markdown.css";
+import "../styles/global.css";
 
 // components
 import Wrapper from "../components/global/Wrapper.astro";
@@ -24,7 +24,8 @@ const {title, description, titleTemplate, siteName, ogImage, twitterSite, themeC
       	locale={locale}
       	{...seoProps}
 	/>
-	<body class="bg-base-950">
+	
+	<body class="bg-base-950 text-base-300 font-retro-global">
 		<Wrapper class="min-h-full">
 			<Header />
 			<main class="md:px-32 px-16 flex flex-col gap-56">

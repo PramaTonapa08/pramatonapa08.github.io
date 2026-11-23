@@ -127,9 +127,7 @@ html[data-theme="light"] .availability-status {
     box-shadow: 0 2px 8px rgba(80, 75, 55, 0.08);
 }
 
-/* =========================================
-   GLOBAL BACKGROUND & TEXT
-========================================= */
+/*  GLOBAL BACKGROUND & TEXT */
 
 html {
     background-color: var(--color-base-950);

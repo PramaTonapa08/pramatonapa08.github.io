@@ -17,7 +17,7 @@ const nav = [
     aria-label="Main navigation"
 >
     <!-- Navigation Links -->
-    <div class="no-scrollbar flex min-w-0 flex-1 items-center overflow-x-auto pr-3 sm:pr-0">
+    <div class="no-scrollbar flex min-w-0 flex-1 items-center justify-between overflow-x-auto sm:justify-start">
         {
             nav.map((navLink) => {
                 const isActive =
@@ -26,7 +26,7 @@ const nav = [
                         : pathname === navLink.href ||
                           pathname.startsWith(`${navLink.href}/`);
 
-                return (
+return (
                     <Link
                         variant="nav"
                         href={navLink.href}
@@ -39,23 +39,21 @@ const nav = [
                                 : "hover:bg-base-800",
                         ]}
                     />
-                );
+                );            
             })
         }
     </div>
 
-    <!-- Theme Toggle (dengan sedikit bayangan pemisah di mode HP) -->
-    <div class="flex shrink-0 items-center bg-base-900 pl-1 shadow-[-8px_0_12px_-4px_rgba(0,0,0,0.4)] sm:shadow-none">
-        <button
-            id="theme-toggle"
-            type="button"
-            aria-label="Switch to light mode"
-            title="Toggle theme"
-            class="flex min-h-10 min-w-10 shrink-0 cursor-pointer items-center justify-center rounded-md px-3 py-2 text-lg transition-transform duration-300 hover:scale-110 hover:opacity-70 focus-visible:outline focus-visible:outline-2"
-        >
-            <span id="theme-icon" aria-hidden="true" class="inline-block transition-transform duration-300">☀️</span>
-        </button>
-    </div>
+    <!-- Theme Toggle -->
+    <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+        title="Toggle theme"
+        class="flex min-h-10 min-w-10 shrink-0 cursor-pointer items-center justify-center rounded-md px-2 py-2 text-base transition-transform duration-300 hover:scale-110 hover:opacity-70 focus-visible:outline focus-visible:outline-2 sm:px-3 sm:text-lg"
+    >
+        <span id="theme-icon" aria-hidden="true" class="inline-block transition-transform duration-300">☀️</span>
+    </button>
 </nav>
 
 <script>

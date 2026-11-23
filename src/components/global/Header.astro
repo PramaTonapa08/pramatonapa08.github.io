@@ -26,9 +26,9 @@ const {
         w-full
         min-w-0
         flex-col
-        gap-5
+        gap-6
         bg-base-950
-        pt-6
+        pt-8
         text-base-50
         md:gap-12
         md:pt-14
@@ -54,7 +54,7 @@ const {
             lg:px-32
         "
     >
-        <!-- PROFILE IMAGE -->
+        <!-- PROFILE IMAGE: Ukuran dikunci agar bulat besar & jelas di HP maupun Laptop -->
         <div class="flex shrink-0 items-center justify-center">
             <Image
                 src={photo}
@@ -64,8 +64,10 @@ const {
                 loading="eager"
                 class="
                     aspect-square
-                    h-24
-                    w-24
+                    h-32
+                    w-32
+                    min-h-32
+                    min-w-32
                     shrink-0
                     rounded-full
                     object-cover
@@ -73,12 +75,10 @@ const {
                     drop-shadow-md
                     ring-2
                     ring-base-800
-                    sm:h-28
-                    sm:w-28
-                    md:h-32
-                    md:w-32
                     lg:h-36
                     lg:w-36
+                    lg:min-h-36
+                    lg:min-w-36
                 "
             />
         </div>
@@ -98,7 +98,7 @@ const {
                 md:gap-6
             "
         >
-            <!-- NAME, ROLE AND SOCIAL LINKS -->
+<!-- NAME, ROLE AND SOCIAL LINKS -->
             <div
                 class="
                     flex
@@ -106,9 +106,9 @@ const {
                     flex-col
                     items-center
                     justify-center
-                    gap-3
+                    gap-4
                     md:items-start
-                    md:gap-4
+                    md:gap-5
                 "
             >
                 <!-- ROLE AND NAME -->
@@ -118,6 +118,7 @@ const {
                         min-w-0
                         flex-col
                         items-center
+                        gap-1.5
                         text-center
                         md:items-start
                         md:text-left
@@ -133,9 +134,11 @@ const {
                 </div>
 
                 <!-- SOCIAL LINKS -->
-                <SocialLinks />
+                <div class="mt-1">
+                    <SocialLinks />
+                </div>
             </div>
-
+        
             <!-- AVAILABILITY STATUS BADGE -->
             <div
                 class="
@@ -148,16 +151,12 @@ const {
                     border
                     border-base-700/80
                     bg-base-900/60
-                    px-3.5
-                    py-1.5
+                    px-4
+                    py-2
                     shadow-sm
-                    backdrop-blur-xs
                     md:self-center
-                    md:px-4
-                    md:py-2
                 "
             >
-                <!-- Titik indikator hijau berkedip halus -->
                 <span class="relative flex h-2.5 w-2.5 shrink-0">
                     <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                     <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span>

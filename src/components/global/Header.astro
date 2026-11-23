@@ -29,8 +29,6 @@ const {
         bg-base-950
         pt-8
         text-base-50
-        md:sticky
-        md:top-0
         md:gap-12
         md:pt-14
     "
@@ -49,17 +47,15 @@ const {
             items-center
             gap-5
             px-4
-            sm:px-6
-            md:flex-row
-            md:items-center
-            md:gap-8
-            md:px-12
+            sm:px-8
+            lg:flex-row
+            lg:items-center
+            lg:gap-8
             lg:px-32
         "
     >
 
-        <!-- PROFILE IMAGE -->
-
+<!-- PROFILE IMAGE -->
         <div
             class="
                 flex
@@ -73,9 +69,9 @@ const {
                 alt="Foto profil Prama Hardi Tonapa"
                 width={200}
                 height={200}
-                densities={[1, 1.5, 2]}
                 loading="eager"
                 class="
+                    aspect-square
                     h-28
                     w-28
                     shrink-0
@@ -93,7 +89,6 @@ const {
             />
         </div>
 
-
         <!-- PROFILE INFORMATION -->
 
         <div
@@ -104,10 +99,10 @@ const {
                 flex-col
                 items-center
                 gap-5
-                md:flex-row
-                md:items-center
-                md:justify-between
-                md:gap-6
+                lg:flex-row
+                lg:items-center
+                lg:justify-between
+                lg:gap-6
             "
         >
 
@@ -121,7 +116,7 @@ const {
                     items-center
                     justify-center
                     gap-4
-                    md:items-start
+                    lg:items-start
                 "
             >
 
@@ -134,8 +129,8 @@ const {
                         flex-col
                         items-center
                         text-center
-                        md:items-start
-                        md:text-left
+                        lg:items-start
+                        lg:text-left
                     "
                 >
 

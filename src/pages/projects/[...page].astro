@@ -1,18 +1,19 @@
 ---
 // layout
-import Layout from "../../layout/Layout.astro"
+import Layout from "../../layout/Layout.astro";
 
 // components
 import Section from "../../components/elements/Section.astro";
 import ProjectCard from "../../components/elements/ProjectCard.astro";
 import Pagination from "../../components/elements/Pagination.astro";
+import SearchBar from "../../components/elements/SearchBar.astro";
 
 // routing
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
-export const getStaticPaths = (async ({paginate}) => {
-    const projects = await getCollection("projects", ({data}) => !data.isDraft)
-    return paginate(projects, {pageSize: 6});
+export const getStaticPaths = (async ({ paginate }) => {
+    const projects = await getCollection("projects", ({ data }) => !data.isDraft);
+    return paginate(projects, { pageSize: 6 });
 }) satisfies GetStaticPaths;
 
 // props
@@ -21,25 +22,41 @@ const { page } = Astro.props;
 
 <Layout
     title="All Projects"
-    description="All Projects for software engineer Andy Decker."
-    ogImage="" 
+    description="All Projects by Prama Hardi Tonapa."
+    ogImage=""
 >
     <Section
         title="Projects"
         titleHeading="Ideas I've Turned Into Projects"
     >
-    {
-        page.data.map((project) => (
-            <ProjectCard 
-                    title={project.data.title}
-                    year={project.data.year}
-                    github={project.data.github}
-                    website={project.data.liveSite}
-                    description={project.data.description}
-                    tools={project.data.tools}
-            />
-        ))
-    }
-    <Pagination prev={page.url.prev} next={page.url.next} />
+        <!-- Kolom Pencarian Projects -->
+        <SearchBar placeholder="Cari proyek, tahun, atau tools (misal: Excel, Statistics, Web)..." />
+
+        <!-- Daftar Projects -->
+        {
+            page.data.map((project) => {
+                const toolsText = Array.isArray(project.data.tools)
+                    ? project.data.tools.join(" ")
+                    : String(project.data.tools ?? "");
+
+                return (
+                    <div
+                        data-search-item
+                        data-search-text={`${project.data.title} ${project.data.year ?? ""} ${project.data.description ?? ""} ${toolsText}`}
+                    >
+                        <ProjectCard
+                            title={project.data.title}
+                            year={project.data.year}
+                            github={project.data.github}
+                            website={project.data.liveSite}
+                            description={project.data.description}
+                            tools={project.data.tools}
+                        />
+                    </div>
+                );
+            })
+        }
+
+        <Pagination prev={page.url.prev} next={page.url.next} />
     </Section>
 </Layout>

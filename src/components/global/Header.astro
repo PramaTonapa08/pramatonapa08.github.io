@@ -26,10 +26,12 @@ const {
         w-full
         min-w-0
         flex-col
-        gap-6
+        gap-5
         bg-base-950
-        pt-8
+        pt-6
         text-base-50
+        sm:gap-6
+        sm:pt-8
         md:gap-12
         md:pt-14
     "
@@ -44,8 +46,9 @@ const {
             min-w-0
             flex-col
             items-center
-            gap-4
+            gap-3.5
             px-4
+            sm:gap-4
             sm:px-6
             md:flex-row
             md:items-center
@@ -54,12 +57,12 @@ const {
             lg:px-32
         "
     >
-        <!-- PROFILE IMAGE: Pembungkus dikunci agar lingkaran tidak melebar saat loading -->
+        <!-- PROFILE IMAGE -->
         <div
             class="
                 flex
-                h-32
-                w-32
+                h-24
+                w-24
                 shrink-0
                 items-center
                 justify-center
@@ -68,6 +71,8 @@ const {
                 drop-shadow-md
                 ring-2
                 ring-base-800
+                sm:h-28
+                sm:w-28
                 lg:h-36
                 lg:w-36
             "
@@ -90,7 +95,8 @@ const {
                 min-w-0
                 flex-col
                 items-center
-                gap-4
+                gap-3.5
+                sm:gap-4
                 md:flex-row
                 md:items-center
                 md:justify-between
@@ -105,7 +111,8 @@ const {
                     flex-col
                     items-center
                     justify-center
-                    gap-4
+                    gap-3
+                    sm:gap-4
                     md:items-start
                     md:gap-5
                 "
@@ -117,13 +124,14 @@ const {
                         min-w-0
                         flex-col
                         items-center
-                        gap-1.5
+                        gap-1
                         text-center
+                        sm:gap-1.5
                         md:items-start
                         md:text-left
                     "
                 >
-                    <Text variant="normal" class="text-base-700">
+                    <Text variant="normal" class="text-base-400">
                         {role}
                     </Text>
 
@@ -133,7 +141,7 @@ const {
                 </div>
 
                 <!-- SOCIAL LINKS -->
-                <div class="mt-1">
+                <div class="mt-0.5 sm:mt-1">
                     <SocialLinks />
                 </div>
             </div>
@@ -150,9 +158,11 @@ const {
                     border
                     border-base-700/80
                     bg-base-900/60
-                    px-4
-                    py-2
+                    px-3.5
+                    py-1.5
                     shadow-sm
+                    sm:px-4
+                    sm:py-2
                     md:self-center
                 "
             >

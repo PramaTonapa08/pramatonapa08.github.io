@@ -1,69 +1,122 @@
 
-# Decker - Astro & Tailwind Portfolio Template
+# Prama Hardi Tonapa — Personal Portfolio
 
-Decker is a retro-inspired portfolio theme built with **Astro** and **Tailwind CSS**, designed for developers and engineers. It combines Astro's performance with Tailwind CSS's flexibility to create a modern, customizable, and professional online presence.
+A personal portfolio website built with **Astro** and **Tailwind CSS**, using the Decker theme as its foundation. This website serves as a place to introduce myself, showcase my projects, share ideas, and document my learning journey in technology and other interests.
 
-## Live Demo
+Inspired by a retro-tech aesthetic, the website is customized to reflect my personal style and provide a simple, clean, and responsive browsing experience.
 
-- [View Live Demo](https://decker-gmc.pages.dev)
+## Live Website
 
-## Contact the Creator
+- [Visit My Portfolio](https://pramatonapa08.github.io)
 
-If you have any questions or feedback about this theme, feel free to reach out:
+## About Me
 
-- **Twitter / X:** [@_gasparjs](https://x.com/_gasparjs)
-- **Bluesky:** [gasparjs](https://bsky.app/profile/gasparjs.bsky.social)
-- **Email:** [jessgaspardev@gmail.com](mailto:jessgaspardev@gmail.com)
+Hi, I'm **Prama Hardi Tonapa**, also known as Rama.
+
+I'm a first-year Statistics student at the Faculty of Mathematics and Natural Sciences, Cenderawasih University. I enjoy mathematics, technology, football, and exploring different things, especially programming, data, and web development.
+
+This portfolio is a personal space where I share what I've been learning, building, and experimenting with along the way.
 
 ## Pages Included
 
-Decker comes with the following pages:
+The website includes several pages:
 
-- Home
-- Projects
-- About
-- Blog
-- Blog Post
-- Contact
-- 404 Not Found
+- **Home** — A brief introduction and overview of my portfolio.
+- **Projects** — A collection of projects and experiments I've worked on.
+- **About** — More information about me, my background, and interests.
+- **Blog** — Personal thoughts, ideas, and learning experiences.
+- **Blog Post** — Individual articles and written content.
+- **Contact** — Ways to get in touch with me.
+- **404 Not Found** — A custom page for unavailable URLs.
 
 ## Features
 
-Decker is built with both developers and content editors in mind. It includes several useful features:
+Some of the features included in this portfolio:
 
-- **Content Collections:** Structured content management for projects, blog posts, experience, education, and skills.
-- **Reusable Components:** Modular components that make the codebase clean, readable, and easy to customize.
-- **Custom Tailwind Theme:** A customizable design system built with Tailwind CSS.
-- **Pagination:** Makes projects and blog posts easier to navigate as your portfolio grows.
-- **Sitemap:** Automatically generates a sitemap to help search engines index your website.
-- **SEO Optimization:** Includes semantic HTML, meta tags, and structured data to improve search engine visibility.
-- **Accessibility:** Uses accessible design patterns and semantic HTML to make the website more accessible.
-- **Ongoing Updates:** Provides improvements and compatibility updates with newer Astro releases.
-- **Optional CMS:** Supports PagesCMS, allowing you to manage projects, blog posts, resumes, and other content through a visual interface without editing code directly.
+- **Content Collections:** Organized content for projects, blog posts, experience, education, and skills.
+- **Reusable Components:** Modular components that make the website easier to maintain and customize.
+- **Responsive Design:** A layout that adapts to different screen sizes and devices.
+- **Custom Styling:** A personalized visual design inspired by retro technology.
+- **Pagination:** Easier navigation through projects and blog posts.
+- **SEO Optimization:** Semantic HTML and metadata to improve search engine visibility.
+- **Sitemap:** Automatically generated sitemap for search engines.
+- **Accessibility:** Semantic HTML and accessible design patterns.
+- **Optional CMS:** Support for PagesCMS to manage website content through a visual interface.
 
-## Astro Commands
+## Built With
 
-All commands should be executed from the root directory of the project using a terminal.
+- [Astro](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Google Fonts](https://fonts.google.com/)
+
+## Getting Started
+
+To run this project locally, make sure you have Node.js and npm installed.
+
+Clone the repository:
+
+```bash
+git clone https://github.com/PramaTonapa08/pramatonapa08.github.io.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd pramatonapa08.github.io
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open `http://localhost:4321` in your browser to view the website.
+
+## Available Commands
+
+Run these commands from the root directory of the project.
 
 | Command | Description |
 |---|---|
 | `npm install` | Installs project dependencies. |
-| `npm run dev` | Starts the local development server at `localhost:4321`. |
-| `npm run build` | Builds the production website into the `./dist/` directory. |
+| `npm run dev` | Starts the local development server. |
+| `npm run build` | Builds the website for production. |
 | `npm run preview` | Previews the production build locally. |
-| `npm run astro ...` | Runs Astro CLI commands, such as `astro add` and `astro check`. |
-| `npm run astro -- --help` | Displays the Astro CLI help information. |
+| `npm run astro ...` | Runs Astro CLI commands. |
+| `npm run astro -- --help` | Displays Astro CLI help information. |
 
-## Theme Attribution
+## Connect With Me
 
-This portfolio website uses the **Decker – Astro & Tailwind Portfolio Template**.
+Feel free to reach out or find me on these platforms:
 
-- **Theme Name:** Decker
-- **Creator:** Jess Gaspar
-- **Theme Demo:** https://decker-gmc.pages.dev
-- **Creator's Website:** https://jessgaspar.dev/themes
-- **Original Theme Repository:** https://github.com/jg-gaspar/decker
+- **GitHub:** [@PramaTonapa08](https://github.com/PramaTonapa08)
+- **Instagram:** [@hardi_1428](https://www.instagram.com/hardi_1428/)
+- **LinkedIn:** [Prama Hardi Tonapa](https://www.linkedin.com/in/prama-hardi-tonapa-12075744a/)
+- **Email:** [pramatonapa@gmail.com](mailto:pramatonapa@gmail.com)
+
+## Credits & Attribution
+
+This portfolio is built using **Decker — Astro & Tailwind Portfolio Template**, originally created by **Jess Gaspar**.
+
+- **Original Theme:** Decker
+- **Original Creator:** Jess Gaspar
+- **Theme Demo:** [decker-gmc.pages.dev](https://decker-gmc.pages.dev)
+- **Creator's Website:** [jessgaspar.dev](https://jessgaspar.dev/themes)
+- **Original Repository:** [jg-gaspar/decker](https://github.com/jg-gaspar/decker)
+
+Special thanks to Jess Gaspar for creating and sharing the original template.
 
 ---
 
-*Original theme created by Jess Gaspar. Customized and maintained by Prama Hardi Tonapa.*
+*Originally designed by Jess Gaspar. Customized and maintained by Prama Hardi Tonapa.*
+
+**Repository:** [PramaTonapa08/pramatonapa08.github.io](https://github.com/PramaTonapa08/pramatonapa08.github.io)
